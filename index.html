@@ -3,155 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Link</title>
+    <title>Sir Usman's Tech Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #00d2ff;
+            --secondary: #3a7bd5;
+            --bg-dark: #0f172a;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Outfit', sans-serif;
             margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #74ebd5, #ACB6E5);
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(0, 210, 255, 0.08) 0%, transparent 30%),
+                radial-gradient(circle at 100% 100%, rgba(58, 123, 213, 0.08) 0%, transparent 30%);
+            color: #fff;
+            min-height: 100vh;
         }
 
         header {
             text-align: center;
-            padding: 30px;
-            background: #6a11cb;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: white;
+            padding: 70px 20px 30px;
         }
 
-        header h1 {
+        .main-heading {
+            font-size: clamp(1.8rem, 5vw, 3.8rem);
+            font-weight: 900;
             margin: 0;
-            font-size: 2.5rem;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .highlight {
+            background: linear-gradient(to right, #00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .intro-container {
+            max-width: 800px;
+            margin: 25px auto;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 20px;
+            border-radius: 18px;
+            backdrop-filter: blur(8px);
+        }
+
+        .intro-container p {
+            margin: 0;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            color: #94a3b8;
+            line-height: 1.6;
         }
 
         .content {
-            max-width: 1000px;  /* thorra barha diya */
-            margin: 30px auto;
+            max-width: 1200px;
+            margin: 40px auto;
             padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
         }
 
         .lecture {
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 15px;
-            background: #fff;
-            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 25px;
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            backdrop-filter: blur(12px);
         }
 
         .lecture:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--primary);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .step-count {
+            font-size: 0.7rem;
+            color: var(--primary);
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
         }
 
         .lecture h3 {
-            margin: 0 0 10px;
-            color: #333;
+            margin: 0;
+            font-size: 1.2rem;
+            color: #f1f5f9;
+            font-weight: 600;
         }
 
         .lecture a {
-            display: block;
-            width: 90%;   /* chhota kar diya */
-            margin: 0 auto; /* center align */
-            padding: 12px;
-            text-align: center;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: #fff;
+            margin-top: 20px;
             text-decoration: none;
-            font-weight: bold;
+            color: #fff;
+            font-weight: 600;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 10px;
-            transition: all 0.3s ease;
+            text-align: center;
+            transition: 0.3s;
         }
 
         .lecture a:hover {
-            background: linear-gradient(to right, #2575fc, #6a11cb);
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-            transform: scale(1.03);
+            filter: brightness(1.1);
+            transform: scale(1.02);
         }
 
         footer {
             text-align: center;
-            padding: 20px;
-            background: #333;
-            color: white;
-            font-size: 1rem;
-            margin-top: 30px;
-            border-top: 3px solid #6a11cb;
+            padding: 50px 20px;
+            color: #475569;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Fixes */
+        @media (max-width: 600px) {
+            header { padding: 40px 15px; }
+            .content { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
+
     <header>
-        <h1>Links of Web Lectures By Sir Usman</h1>
+        <h1 class="main-heading">
+            The Tech Roadmap <br>
+            <span class="highlight">With Respected Sir Usman</span>
+        </h1>
+        
+        <div class="intro-container">
+            <p>
+                A structured collection of technical resources covering the complete modern web stack and 
+                core computer science fundamentals. Follow the sequence below to master the skills.
+            </p>
+        </div>
     </header>
 
     <div class="content">
         <div class="lecture">
-            <h3>Web Lec By Sir Usman Part 01 (HTML)</h3>
-            <a href="https://drive.google.com/drive/folders/1YlnyclZeik2c8dBy10RkhaKalcQB_Ddj?usp=sharing" target="_blank">Click Here to view Detail</a>
+            <div class="step-count">STEP 01 — STRUCTURE</div>
+            <h3>Web Lec Part 01 (HTML)</h3>
+            <a href="https://drive.google.com/drive/folders/1YlnyclZeik2c8dBy10RkhaKalcQB_Ddj?usp=sharing" target="_blank">View Details</a>
         </div>
 
         <div class="lecture">
-            <h3>Web Lec By Sir Usman Part 02 (CSS)</h3>
-            <a href="https://drive.google.com/drive/folders/1rLt7w0gOaaJCDdKGtxhfwRtA1YBeVXcA?usp=sharing" target="_blank">Click Here to view Detail</a>
+            <div class="step-count">STEP 02 — DESIGN</div>
+            <h3>Web Lec Part 02 (CSS Basics)</h3>
+            <a href="https://drive.google.com/drive/folders/1rLt7w0gOaaJCDdKGtxhfwRtA1YBeVXcA?usp=sharing" target="_blank">View Details</a>
         </div>
 
         <div class="lecture">
-            <h3>Web Lec By Sir Usman Part 03 (CSS)</h3>
-            <a href="https://drive.google.com/drive/folders/15B2E67dFrIvXeNKv-TH_CPbVmEzhNLP-?usp=sharing" target="_blank">Click Here to view Detail</a>
+            <div class="step-count">STEP 02 — DESIGN</div>
+            <h3>Web Lec Part 03 (Advanced CSS)</h3>
+            <a href="https://drive.google.com/drive/folders/15B2E67dFrIvXeNKv-TH_CPbVmEzhNLP-?usp=sharing" target="_blank">View Details</a>
         </div>
 
         <div class="lecture">
-            <h3>Web Lec By Sir Usman Part 04 (CSS)</h3>
-            <a href="https://drive.google.com/drive/folders/1DAKQ-TD_pa23SthDmSpNMeDUcQ6d4qkC?usp=drive_link" target="_blank">Click Here to view Detail</a>
+            <div class="step-count">STEP 02 — DESIGN</div>
+            <h3>Web Lec Part 04 (Modern CSS)</h3>
+            <a href="https://drive.google.com/drive/folders/1DAKQ-TD_pa23SthDmSpNMeDUcQ6d4qkC?usp=drive_link" target="_blank">View Details</a>
         </div>
 
         <div class="lecture">
-            <h3>Web Lec By Sir Usman Part 05 (JavaScript Link By Student#01)</h3>
-            <a href="https://drive.google.com/drive/folders/1LMRhWW-Ru2JKpnkfTeV2kcliCxpoMaJt?usp=drive_link" target="_blank">Click Here to view Detail</a>
+            <div class="step-count">STEP 03 — LOGIC</div>
+            <h3>Web Lec Part 05 (JS - Vol 1)</h3>
+            <a href="https://drive.google.com/drive/folders/1LMRhWW-Ru2JKpnkfTeV2kcliCxpoMaJt?usp=drive_link" target="_blank">View Details</a>
         </div>
 
         <div class="lecture">
-            <h3>Web Lec By Sir Usman Part 05 (JavaScript Link By Student#02)</h3>
-            <a href="https://drive.google.com/drive/folders/1YCA7tssisOU_U3ECGB-zBXllm8aNTxD_?usp=sharing" target="_blank">Click Here to view Detail</a>
+            <div class="step-count">STEP 03 — LOGIC</div>
+            <h3>Web Lec Part 05 (JS - Vol 2)</h3>
+            <a href="https://drive.google.com/drive/folders/1YCA7tssisOU_U3ECGB-zBXllm8aNTxD_?usp=sharing" target="_blank">View Details</a>
         </div>
- <div class="lecture">
-            <h3>Introduction to DevOps(Webinar By Respected Sir Umsan)  </h3>
-            <a href="https://drive.google.com/file/d/1CxZ-9dxxNObBNUBrf5fQlK-2TRUjkclP/view?usp=sharing" target="_blank">Click Here to view Detail</a>
-        </div>
+
         <div class="lecture">
-            <h3>Introduction to Data Structures & Algorithms By Sir Usman </h3>
-            <a href="https://drive.google.com/file/d/11i7UisF64Weitc83z-OOBI9wQjFWqxsu/view?usp=sharing" target="_blank">Click Here to view Detail</a>
+            <div class="step-count">STEP 04 — FRAMEWORKS</div>
+            <h3>JS Essentials for React JS</h3>
+            <a href="https://drive.google.com/drive/folders/19Kcwl-YxjQk9sR0OYWcf0xk0elDzss1E?usp=sharing" target="_blank">View Details</a>
         </div>
-         <div class="lecture">
-            <h3>DSA Lectures By Sir Usman </h3>
-            <a href="https://drive.google.com/drive/folders/1FkwpWXcATyZj_tbkOoYrhvzcMqgt-mRi?usp=sharing" target="_blank">Click Here to view Detail</a>
+
+        <div class="lecture">
+            <div class="step-count">STEP 05 — OPERATIONS</div>
+            <h3>Introduction to DevOps Webinar</h3>
+            <a href="https://drive.google.com/file/d/1CxZ-9dxxNObBNUBrf5fQlK-2TRUjkclP/view?usp=sharing" target="_blank">View Details</a>
         </div>
+
+        <div class="lecture">
+            <div class="step-count">STEP 06 — CORE CS</div>
+            <h3>Intro to Data Structures</h3>
+            <a href="https://drive.google.com/file/d/11i7UisF64Weitc83z-OOBI9wQjFWqxsu/view?usp=sharing" target="_blank">View Details</a>
         </div>
-         <div class="lecture">
-            <h3>JS Essentials for React JS By  Respected Sir Umsan </h3>
-            <a href="https://drive.google.com/drive/folders/19Kcwl-YxjQk9sR0OYWcf0xk0elDzss1E?usp=sharing" target="_blank">Click Here to view Detail</a>
+
+        <div class="lecture" style="border-bottom: 2px solid var(--primary);">
+            <div class="step-count">STEP 06 — CORE CS</div>
+            <h3>DSA Full Lecture Series</h3>
+            <a href="https://drive.google.com/drive/folders/1FkwpWXcATyZj_tbkOoYrhvzcMqgt-mRi?usp=sharing" target="_blank">View Details</a>
         </div>
     </div>
 
     <footer>
-        Future links of Web Development class will also be added here Insha Allah. Thank you 😊✨
+        Future links of Web Development class will also be added here Insha Allah.
     </footer>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
